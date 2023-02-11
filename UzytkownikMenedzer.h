@@ -21,6 +21,7 @@ class UzytkownikMenedzer {
 public:
     UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami){};
     void rejestracjaUzytkownika();
+    int logowanieUzytkownika();
     Uzytkownik podajDaneNowegoUzytkownika();
         void wypiszWszystkichUzytkownikow();
         void wczytajUzytkownikowZPliku();
