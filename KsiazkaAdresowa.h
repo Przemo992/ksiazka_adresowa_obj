@@ -16,7 +16,7 @@ KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenedzer(nazwaPliku
 };
 void rejestracjaUzytkownika();
 void wypiszWszystkichUzytkownikow();
-
+int logowanieUzytkownika();
 };
 
 #endif // KSIAZKAADRESOWA_H
