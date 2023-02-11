@@ -1,8 +1,9 @@
 #ifndef UZYTKOWNIK_H
 #define UZYTKOWNIK_H
 
-
 #include <iostream>
+
+//#include "UzytkownikMenedzer.h"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ public:
     void ustawId(int noweId);
     void ustawLogin(string nowyLogin);
     void ustawHaslo(string noweHaslo);
+
 
     int pobierzId();
     string pobierzLogin();
