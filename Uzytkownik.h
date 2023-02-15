@@ -3,7 +3,6 @@
 
 #include <iostream>
 
-//#include "UzytkownikMenedzer.h"
 
 using namespace std;
 

@@ -79,7 +79,6 @@ int UzytkownikMenedzer::logowanieUzytkownika()
     cout << endl << "Podaj login: ";
     cin >> login;
 
-    vector <Uzytkownik>::iterator itr = uzytkownicy.begin();
     for (int i = 0; i < uzytkownicy.size(); i++){
         if(uzytkownicy[i].pobierzLogin() == login)
         {
@@ -99,7 +98,7 @@ int UzytkownikMenedzer::logowanieUzytkownika()
             system("pause");
             return 0;
         }
-        i;
+
     }
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
