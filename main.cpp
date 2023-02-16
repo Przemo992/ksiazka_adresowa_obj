@@ -3,20 +3,19 @@
 #include "KsiazkaAdresowa.h"
 #include "MenuGlowne.h"
 
+
+
 using namespace std;
 
 int main()
 {
 
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
+    MenuGlowne menuGlowne;
 
-char wybor;
-int idZalogowanegoUzytkownika;
-int idOstatniegoAdresata = 0;
-
-MenuGlowne menuGlowne;
-
-    //wczytajUzytkownikowZPliku(uzytkownicy);
+    char wybor;
+    int idZalogowanegoUzytkownika;
+    int idOstatniegoAdresata = 0;
 
     while (true)
     {
@@ -44,8 +43,6 @@ MenuGlowne menuGlowne;
         }
         else
         {
-
-            //if (adresaci.empty() == true)
                 // Pobieramy idOstatniegoAdresata, po to aby zoptymalizowac program.
                 // Dzieki temu, kiedy uztykwonik bedzie dodawal nowego adresata
                 // to nie bedziemy musieli jeszcze raz ustalac idOstatniegoAdresata

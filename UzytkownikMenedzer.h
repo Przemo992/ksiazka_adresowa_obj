@@ -27,9 +27,9 @@ public:
     void rejestracjaUzytkownika();
     int logowanieUzytkownika();
     Uzytkownik podajDaneNowegoUzytkownika();
-    void wypiszWszystkichUzytkownikow();
     void wczytajUzytkownikowZPliku();
     void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
+
 };
 
 #endif // UZYTKOWNIKMENEDZER_H

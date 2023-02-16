@@ -20,11 +20,10 @@ class PlikZAdresatami
 
 public:
     PlikZAdresatami();
-       //vector <Adresat> wczytajAdresatowZPliku();
     void dopiszAdresataDoPliku(Adresat adresat);
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
-        int pobierzIdOstatniegoAdresata(int idZalogowanegoUzytkownika);
+    int pobierzIdOstatniegoAdresata(int idZalogowanegoUzytkownika);
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
 
 

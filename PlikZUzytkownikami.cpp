@@ -1,8 +1,6 @@
 #include "PlikZUzytkownikami.h"
 #include "Uzytkownik.h"
 
-
-
 bool PlikZUzytkownikami::czyPlikJestPusty()
 {
         fstream plikTekstowy;

@@ -23,5 +23,5 @@ class AdresatMenedzer
        void wyswietlDaneAdresata(Adresat adresat);
        void wylogowanie();
        void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
-       // wczytaj wszystkich adresatow jako kontruktor!!!!! <------
+
 };
