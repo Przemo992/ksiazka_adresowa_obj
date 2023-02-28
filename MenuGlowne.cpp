@@ -4,7 +4,7 @@ char MenuGlowne::wczytajZnak()
 {
     string wejscie = "";
     char znak  = {0};
-
+cin.sync();
     while (true)
     {
         getline(cin, wejscie);
