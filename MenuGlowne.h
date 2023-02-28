@@ -7,6 +7,7 @@ using namespace std;
 
 class MenuGlowne
 {
+
 char wczytajZnak();
 
 public:

@@ -12,27 +12,25 @@
 
 using namespace std;
 
-class AdresatMenedzer
-{
+class AdresatMenedzer {
 
-   int idOstatniegoAdresata;
+    int idOstatniegoAdresata;
 
-   vector <Adresat> adresaci;
+    vector <Adresat> adresaci;
 
-   PlikZAdresatami plikZAdresatami;
-   int pobierzIdOstatniegoAdresata();
+    PlikZAdresatami plikZAdresatami;
+    int pobierzIdOstatniegoAdresata();
 
+public:
 
-   public:
+    AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {};
 
-AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {};
-
-       void dodajAdresata(int idZalogowanegoUzytkownika);
-       Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
-       void wyswietlWszystkichAdresatow();
-       void wyswietlDaneAdresata(Adresat adresat);
-       void wylogowanie();
-       void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    void dodajAdresata(int idZalogowanegoUzytkownika);
+    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
+    void wyswietlWszystkichAdresatow();
+    void wyswietlDaneAdresata(Adresat adresat);
+    void wylogowanie();
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
 
 };
 

@@ -9,7 +9,6 @@ int main()
 {
 
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt", "Adresaci.txt");
-    ksiazkaAdresowa.ustawIdZalogowanegoUzytkownika(0);
     MenuGlowne menuGlowne;
 
     char wybor;

@@ -30,7 +30,6 @@ public:
     int pobierzIdOstatniegoAdresata();
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
 
-
 };
 
 

@@ -4,13 +4,11 @@ char MenuGlowne::wczytajZnak()
 {
     string wejscie = "";
     char znak  = {0};
-cin.sync();
-    while (true)
-    {
+    cin.sync();
+    while (true) {
         getline(cin, wejscie);
 
-        if (wejscie.length() == 1)
-        {
+        if (wejscie.length() == 1) {
             znak = wejscie[0];
             break;
         }
