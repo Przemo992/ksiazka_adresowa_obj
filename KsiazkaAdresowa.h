@@ -10,19 +10,23 @@ using namespace std;
 
 class KsiazkaAdresowa
 {
-UzytkownikMenedzer uzytkownikMenedzer;
-AdresatMenedzer adresatMenedzer;
+    UzytkownikMenedzer uzytkownikMenedzer;
+    AdresatMenedzer adresatMenedzer;
+
 public:
-KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami){
-    uzytkownikMenedzer.wczytajUzytkownikowZPliku();
-};
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami) , adresatMenedzer(nazwaPlikuZAdresatami) {
+        uzytkownikMenedzer.wczytajUzytkownikowZPliku();
+    };
+
     void rejestracjaUzytkownika();
-    int logowanieUzytkownika();
-    void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
-    int dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
+    void logowanieUzytkownika();
+    void zmianaHaslaZalogowanegoUzytkownika();
+    void dodajAdresata(int idZalogowanegoUzytkownika);
     void wyswietlWszystkichAdresatow();
     void wylogowanie();
-void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    int pobierzIdZalogowanegoUzytkownika();
+    void ustawIdZalogowanegoUzytkownika(int noweIdZalogowanegoUzytkownika);
 };
 
 #endif // KSIAZKAADRESOWA_H

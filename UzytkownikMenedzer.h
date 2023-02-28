@@ -23,12 +23,16 @@ class UzytkownikMenedzer
     PlikZUzytkownikami plikZUzytkownikami;
 
 public:
+
     UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {};
+
     void rejestracjaUzytkownika();
-    int logowanieUzytkownika();
+    void logowanieUzytkownika();
     Uzytkownik podajDaneNowegoUzytkownika();
     void wczytajUzytkownikowZPliku();
-    void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
+    void zmianaHaslaZalogowanegoUzytkownika();
+    int pobierzIdZalogowanegoUzytkownika();
+    void ustawIdZalogowanegoUzytkownika(int noweIdZalogowanegoUzytkownika);
 
 };
 

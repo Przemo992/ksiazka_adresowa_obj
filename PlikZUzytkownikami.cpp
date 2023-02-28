@@ -1,9 +1,10 @@
 #include "PlikZUzytkownikami.h"
 #include "Uzytkownik.h"
 
-bool PlikZUzytkownikami::czyPlikJestPusty()
+
+bool PlikZUzytkownikami::czyPlikJestPusty(fstream &plikTekstowy)
 {
-        fstream plikTekstowy;
+
     plikTekstowy.seekg(0, ios::end);
     if (plikTekstowy.tellg() == 0)
         return true;
@@ -21,13 +22,13 @@ void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
     {
         liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownik);
 
-        if (czyPlikJestPusty() == true)
+        if (czyPlikJestPusty(plikTekstowy) == true)
         {
             plikTekstowy << liniaZDanymiUzytkownika;
         }
         else
         {
-            plikTekstowy << endl << liniaZDanymiUzytkownika ;
+            plikTekstowy << endl << liniaZDanymiUzytkownika;
         }
     }
     else
@@ -63,7 +64,7 @@ Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkown
     string pojedynczaDanaUzytkownika = "";
     int numerPojedynczejDanejUzytkownika = 1;
 
-    for (int pozycjaZnaku = 0; pozycjaZnaku < daneJednegoUzytkownikaOddzielonePionowymiKreskami.length(); pozycjaZnaku++)
+    for (unsigned int pozycjaZnaku = 0; pozycjaZnaku < daneJednegoUzytkownikaOddzielonePionowymiKreskami.length(); pozycjaZnaku++)
     {
         if (daneJednegoUzytkownikaOddzielonePionowymiKreskami[pozycjaZnaku] != '|')
         {
