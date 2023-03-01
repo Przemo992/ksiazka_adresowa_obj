@@ -26,7 +26,6 @@ int main()
                 break;
             case '2':
                 ksiazkaAdresowa.logowanieUzytkownika();
-                ksiazkaAdresowa.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika());
                 break;
             case '9':
                 exit(0);
@@ -45,7 +44,7 @@ int main()
             switch (wybor)
             {
             case '1':
-                ksiazkaAdresowa.dodajAdresata(ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika());
+                ksiazkaAdresowa.dodajAdresata();
                 break;
             /*case '2':
                 wyszukajAdresatowPoImieniu(adresaci);
