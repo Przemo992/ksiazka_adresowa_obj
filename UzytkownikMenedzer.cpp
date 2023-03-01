@@ -67,10 +67,7 @@ Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika()
 }
 
 
-void UzytkownikMenedzer::wczytajUzytkownikowZPliku()
-{
-uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
-}
+
 
 void UzytkownikMenedzer::logowanieUzytkownika()
 {
@@ -125,3 +122,10 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
     plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
 
+bool UzytkownikMenedzer::czyUzytkownikJestZalogowany()
+{
+    if (idZalogowanegoUzytkownika > 0)
+        return true;
+    else
+        return false;
+}
