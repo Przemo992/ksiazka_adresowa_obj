@@ -33,6 +33,8 @@ public:
     void wylogowanie();
     int pobierzIdZalogowanegoUzytkownika();
     void ustawIdZalogowanegoUzytkownika(int noweIdZalogowanegoUzytkownika);
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
 };
 
 #endif // KSIAZKAADRESOWA_H
