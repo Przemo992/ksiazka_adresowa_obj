@@ -9,7 +9,6 @@ int main()
 {
 
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt", "Adresaci.txt");
-    MenuGlowne menuGlowne;
 
     char wybor;
 
@@ -17,7 +16,7 @@ int main()
     {
         if (ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika() == 0)
         {
-            wybor = menuGlowne.wybierzOpcjeZMenuGlownego();
+            wybor = MenuGlowne::wybierzOpcjeZMenuGlownego();
 
             switch (wybor)
             {
@@ -39,7 +38,7 @@ int main()
         else
         {
 
-            wybor = menuGlowne.wybierzOpcjeZMenuUzytkownika();
+            wybor = MenuGlowne::wybierzOpcjeZMenuUzytkownika();
 
             switch (wybor)
             {
@@ -55,13 +54,12 @@ int main()
             case '4':
                 ksiazkaAdresowa.wyswietlWszystkichAdresatow();
                 break;
-           /* case '5':
-                idUsunietegoAdresata = usunAdresata(adresaci);
-                idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
+           case '5':
+                ksiazkaAdresowa.usunAdresata();
                 break;
             case '6':
-                edytujAdresata(adresaci);
-                break; */
+                ksiazkaAdresowa.edytujAdresata();
+                break;
             case '7':
                 ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
                 break;
