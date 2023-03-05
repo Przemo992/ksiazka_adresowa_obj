@@ -8,11 +8,13 @@ using namespace std;
 class MenuGlowne
 {
 
-char wczytajZnak();
+
 
 public:
-    char wybierzOpcjeZMenuUzytkownika();
-    char wybierzOpcjeZMenuGlownego();
+    static char wczytajZnak();
+    static char wybierzOpcjeZMenuUzytkownika();
+    static char wybierzOpcjeZMenuGlownego();
+    static char wybierzOpcjeZMenuEdycja();
 };
 
 #endif // MENUGLOWNE_H

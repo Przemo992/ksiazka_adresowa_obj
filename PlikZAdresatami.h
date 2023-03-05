@@ -9,6 +9,7 @@
 #include "Adresat.h"
 #include "MetodyPomocnicze.h"
 #include "UzytkownikMenedzer.h"
+#include "MenuGlowne.h"
 
 using namespace std;
 
@@ -17,10 +18,15 @@ class PlikZAdresatami
     int idOstatniegoAdresata;
 
    const string nazwaPlikuZAdresatami;
+   string nazwaTymczasowegoPlikuZAdresatami = "Adresaci_tymczasowo.txt";
 
    bool czyPlikJestPusty(fstream &plikTekstowy);
    int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
    int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+   void edytujWybranaLinieWPliku(string liniaZDanymiAdresataOddzielonePionowymiKreskami, int idAdresata);
+   void usunPlik(string nazwaPlikuZRozszerzeniem);
+   void zmienNazwePliku(string staraNazwa, string nowaNazwa);
+
 
 public:
 
@@ -31,6 +37,8 @@ public:
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     int pobierzIdOstatniegoAdresata();
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
+    void zaktualizujDaneWybranegoAdresata(Adresat adresat);
+      void usunAdresataZPliku(vector <Adresat> &adresaci, int idUsuwanegoAdresata);
 
 };
 

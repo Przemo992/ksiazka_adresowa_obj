@@ -43,8 +43,6 @@ void KsiazkaAdresowa::wylogowanie()
     adresatMenedzer = NULL;
 }
 
-
-
 int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika()
 {
     return uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
@@ -62,6 +60,15 @@ void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
 
 void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku()
 {
-        adresatMenedzer->wyszukajAdresatowPoNazwisku();
+    adresatMenedzer->wyszukajAdresatowPoNazwisku();
+}
 
+void KsiazkaAdresowa::edytujAdresata()
+{
+    adresatMenedzer->edytujAdresata();
+}
+
+void KsiazkaAdresowa::usunAdresata()
+{
+    adresatMenedzer->usunAdresata();
 }
