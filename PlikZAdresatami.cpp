@@ -259,53 +259,10 @@ void PlikZAdresatami::zmienNazwePliku(string staraNazwa, string nowaNazwa)
         cout << "Nazwa pliku nie zostala zmieniona." << staraNazwa << endl;
 }
 
-/*void usunWybranaLinieWPliku(int numerUsuwanejLinii)
-{
-    fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
-    string wczytanaLinia = "";
-    int numerWczytanejLinii = 1;
-
-    odczytywanyPlikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
-    tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami.c_str(), ios::out | ios::app);
-
-    if (odczytywanyPlikTekstowy.good() == true && numerUsuwanejLinii != 0)
-    {
-        while (getline(odczytywanyPlikTekstowy, wczytanaLinia))
-        {
-            // Tych przypadkow jest tyle, gdyz chcemy osiagnac taki efekt,
-            // aby na koncu pliku nie bylo pustej linii
-            if (numerWczytanejLinii == numerUsuwanejLinii) {}
-            else if (numerWczytanejLinii == 1 && numerWczytanejLinii != numerUsuwanejLinii)
-                tymczasowyPlikTekstowy << wczytanaLinia;
-            else if (numerWczytanejLinii == 2 && numerUsuwanejLinii == 1)
-                tymczasowyPlikTekstowy << wczytanaLinia;
-            else if (numerWczytanejLinii > 2 && numerUsuwanejLinii == 1)
-                tymczasowyPlikTekstowy << endl << wczytanaLinia;
-            else if (numerWczytanejLinii > 1 && numerUsuwanejLinii != 1)
-                tymczasowyPlikTekstowy << endl << wczytanaLinia;
-            numerWczytanejLinii++;
-        }
-        odczytywanyPlikTekstowy.close();
-        tymczasowyPlikTekstowy.close();
-
-        usunPlik(nazwaPlikuZAdresatami);
-        zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, nazwaPlikuZAdresatami);
-    }
-}*/
 
 void PlikZAdresatami::usunAdresataZPliku(vector <Adresat> &adresaci, int idUsuwanegoAdresata)
 {
-
-    //numerLiniiUsuwanegoAdresata = zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
-
-    int numerLiniiWPlikuTekstowym = 1;
-    int numerWczytanejLinii = 1;
-    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
-    string wczytanaLinia = "";
     fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
-
-    odczytywanyPlikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
-
 
     char znak;
     bool czyIstniejeAdresat = false;
@@ -314,69 +271,55 @@ void PlikZAdresatami::usunAdresataZPliku(vector <Adresat> &adresaci, int idUsuwa
         if (itr -> pobierzId() == idUsuwanegoAdresata)
         {
             czyIstniejeAdresat = true;
-                tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami.c_str(), ios::out | ios::app);
             cout << endl << "Potwierdz naciskajac klawisz 't': ";
             znak = MenuGlowne::wczytajZnak();
             if (znak == 't')
             {
                 if (odczytywanyPlikTekstowy.good() == true && idUsuwanegoAdresata != 0)
                 {
-                    while(getline(odczytywanyPlikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami))
+                    adresaci.erase(itr);
+
+                    string linia = "";
+                    int idAdresata;
+                    int numerLini = 1;
+
+                    odczytywanyPlikTekstowy.open(nazwaPlikuZAdresatami, ios::in);
+                    tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami, ios::out | ios::app);
+                    while(getline(odczytywanyPlikTekstowy, linia))
                     {
-                        if(idUsuwanegoAdresata == pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami))
+                        idAdresata = atoi(linia.c_str());
+                        if (idAdresata == idUsuwanegoAdresata) continue;
+                        if (odczytywanyPlikTekstowy.eof() == true)
                         {
-                            czyIstniejeAdresat = true;
-                            odczytywanyPlikTekstowy.clear();
-                            odczytywanyPlikTekstowy.seekg(0, ios::beg);
-                            break;
-                            //plikTekstowy.close();
-                            //return numerLiniiWPlikuTekstowym;
+                            tymczasowyPlikTekstowy << endl << linia;
+                        }
+                        else if (numerLini == 1)
+                        {
+                            tymczasowyPlikTekstowy << linia ;
                         }
                         else
-                            numerLiniiWPlikuTekstowym++;
+                        {
+                           tymczasowyPlikTekstowy << endl << linia;
+                        }
+                        numerLini++;
                     }
-                    if (czyIstniejeAdresat == false)
-                    {
-                        odczytywanyPlikTekstowy.close();
-                        return;
-                    }
-                }
-                if (odczytywanyPlikTekstowy.good() == true && numerLiniiWPlikuTekstowym != 0)
-                {
-                    while (getline(odczytywanyPlikTekstowy, wczytanaLinia))
-                    {
-                        // Tych przypadkow jest tyle, gdyz chcemy osiagnac taki efekt,
-                        // aby na koncu pliku nie bylo pustej linii
-                        if (numerWczytanejLinii == numerLiniiWPlikuTekstowym) {}
-                        else if (numerWczytanejLinii == 1 && numerWczytanejLinii != numerLiniiWPlikuTekstowym)
-                            tymczasowyPlikTekstowy << wczytanaLinia;
-                        else if (numerWczytanejLinii == 2 && numerLiniiWPlikuTekstowym == 1)
-                            tymczasowyPlikTekstowy << wczytanaLinia;
-                        else if (numerWczytanejLinii > 2 && numerLiniiWPlikuTekstowym == 1)
-                            tymczasowyPlikTekstowy << endl << wczytanaLinia;
-                        else if (numerWczytanejLinii > 1 && numerLiniiWPlikuTekstowym != 1)
-                            tymczasowyPlikTekstowy << endl << wczytanaLinia;
-                        numerWczytanejLinii++;
-                    }
+
                     odczytywanyPlikTekstowy.close();
                     tymczasowyPlikTekstowy.close();
 
                     usunPlik(nazwaPlikuZAdresatami);
                     zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, nazwaPlikuZAdresatami);
 
-                //usunWybranaLinieWPliku(numerLiniiUsuwanegoAdresata);
-                adresaci.erase(itr);
-                cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
-                system("pause");
-                return;
-                //return idUsuwanegoAdresata;
-                }
-                else
-                {
-                    cout << endl << endl << "Wybrany adresat NIE zostal usuniety" << endl << endl;
+                    cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
                     system("pause");
                     return;
                 }
+            }
+            else
+            {
+                cout << endl << endl << "Wybrany adresat NIE zostal usuniety" << endl << endl;
+                system("pause");
+                return;
             }
         }
     }
@@ -387,11 +330,3 @@ void PlikZAdresatami::usunAdresataZPliku(vector <Adresat> &adresaci, int idUsuwa
     }
     return;
 }
-
-/*int podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(int idUsuwanegoAdresata, int idOstatniegoAdresata)
-{
-    if (idUsuwanegoAdresata == idOstatniegoAdresata)
-        return pobierzZPlikuIdOstatniegoAdresata();
-    else
-        return idOstatniegoAdresata;
-}*/

@@ -73,7 +73,7 @@ void AdresatMenedzer::wyswietlDaneAdresata(Adresat adresat)
 
 void AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
 {
-adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+    adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 }
 
 void AdresatMenedzer::wylogowanie()
@@ -143,7 +143,7 @@ void AdresatMenedzer::wyszukajAdresatowPoNazwisku()
                 iloscAdresatow++;
             }
         }
-         wyswietlIloscWyszukanychAdresatow(iloscAdresatow);
+        wyswietlIloscWyszukanychAdresatow(iloscAdresatow);
     }
     else
     {
@@ -158,7 +158,6 @@ void AdresatMenedzer::edytujAdresata()
     system("cls");
     Adresat adresat;
     int idEdytowanegoAdresata = 0;
-    //int numerLiniiEdytowanegoAdresata = 0;
     string liniaZDanymiAdresata = "";
 
     cout << ">>> EDYCJA WYBRANEGO ADRESATA <<<" << endl << endl;

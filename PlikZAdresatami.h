@@ -17,20 +17,20 @@ class PlikZAdresatami
 {
     int idOstatniegoAdresata;
 
-   const string nazwaPlikuZAdresatami;
-   string nazwaTymczasowegoPlikuZAdresatami = "Adresaci_tymczasowo.txt";
+    const string nazwaPlikuZAdresatami;
+    string nazwaTymczasowegoPlikuZAdresatami = "Adresaci_tymczasowo.txt";
 
-   bool czyPlikJestPusty(fstream &plikTekstowy);
-   int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
-   int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
-   void edytujWybranaLinieWPliku(string liniaZDanymiAdresataOddzielonePionowymiKreskami, int idAdresata);
-   void usunPlik(string nazwaPlikuZRozszerzeniem);
-   void zmienNazwePliku(string staraNazwa, string nowaNazwa);
+    bool czyPlikJestPusty(fstream &plikTekstowy);
+    int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+    int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+    void edytujWybranaLinieWPliku(string liniaZDanymiAdresataOddzielonePionowymiKreskami, int idAdresata);
+    void usunPlik(string nazwaPlikuZRozszerzeniem);
+    void zmienNazwePliku(string staraNazwa, string nowaNazwa);
 
 
 public:
 
-    PlikZAdresatami(string NAZWAPLIKUZADRESATAMI): nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI){};
+    PlikZAdresatami(string NAZWAPLIKUZADRESATAMI): nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI) {};
 
     void dopiszAdresataDoPliku(Adresat adresat);
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
@@ -38,7 +38,7 @@ public:
     int pobierzIdOstatniegoAdresata();
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
     void zaktualizujDaneWybranegoAdresata(Adresat adresat);
-      void usunAdresataZPliku(vector <Adresat> &adresaci, int idUsuwanegoAdresata);
+    void usunAdresataZPliku(vector <Adresat> &adresaci, int idUsuwanegoAdresata);
 
 };
 

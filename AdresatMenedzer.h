@@ -13,7 +13,8 @@
 
 using namespace std;
 
-class AdresatMenedzer {
+class AdresatMenedzer
+{
 
     PlikZAdresatami plikZAdresatami;
 
@@ -22,26 +23,26 @@ class AdresatMenedzer {
     vector <Adresat> adresaci;
 
     void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
-        void wyswietlDaneAdresata(Adresat adresat);
-           void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
-           int podajIdWybranegoAdresata();
+    void wyswietlDaneAdresata(Adresat adresat);
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    int podajIdWybranegoAdresata();
 
 public:
 
     AdresatMenedzer(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika)
-    : plikZAdresatami(nazwaPlikuZAdresatami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika)
-     {
-         adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
-     };
+        : plikZAdresatami(nazwaPlikuZAdresatami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika)
+    {
+        adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+    };
 
     void dodajAdresata();
     Adresat podajDaneNowegoAdresata();
     void wyswietlWszystkichAdresatow();
     void wylogowanie();
-     void wyszukajAdresatowPoImieniu();
-     void wyszukajAdresatowPoNazwisku();
-     void edytujAdresata();
-     void usunAdresata();
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
+    void edytujAdresata();
+    void usunAdresata();
 };
 
 #endif // ADRESATMENEDZER_H
