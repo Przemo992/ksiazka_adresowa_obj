@@ -31,7 +31,6 @@ bool UzytkownikMenedzer::czyIstniejeLogin(string login)
 
     }
     return false;
-
 }
 
 void UzytkownikMenedzer::rejestracjaUzytkownika()

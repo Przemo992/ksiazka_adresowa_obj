@@ -1,11 +1,6 @@
 #ifndef PLIKIZADRESATAMI_H
 #define PLIKIZADRESATAMI_H
 
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <cstdlib>
-
 #include "PlikTekstowy.h"
 #include "Adresat.h"
 #include "MetodyPomocnicze.h"
@@ -14,8 +9,7 @@
 
 using namespace std;
 
-class PlikZAdresatami :public PlikTekstowy
-{
+class PlikZAdresatami :public PlikTekstowy {
     int idOstatniegoAdresata;
 
     string nazwaTymczasowegoPlikuZAdresatami = "Adresaci_tymczasowo.txt";
@@ -25,7 +19,6 @@ class PlikZAdresatami :public PlikTekstowy
     void edytujWybranaLinieWPliku(string liniaZDanymiAdresataOddzielonePionowymiKreskami, int idAdresata);
     void usunPlik(string nazwaPlikuZRozszerzeniem);
     void zmienNazwePliku(string staraNazwa, string nowaNazwa);
-
 
 public:
 

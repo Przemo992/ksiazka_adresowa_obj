@@ -31,7 +31,6 @@ void Adresat::ustawAdres(string nowyAdres)
     adres = nowyAdres;
 }
 
-
 int Adresat::pobierzId()
 {
     return id;

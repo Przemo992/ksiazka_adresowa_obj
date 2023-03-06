@@ -30,15 +30,12 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata()
 
 void AdresatMenedzer::dodajAdresata()
 {
-
     system("cls");
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
     Adresat adresat = podajDaneNowegoAdresata();
 
     adresaci.push_back(adresat);
     plikZAdresatami.dopiszAdresataDoPliku(adresat);
-
-
 }
 
 void AdresatMenedzer::wyswietlWszystkichAdresatow()

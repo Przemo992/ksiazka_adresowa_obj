@@ -5,10 +5,7 @@
 
 using namespace std;
 
-class MenuGlowne
-{
-
-
+class MenuGlowne {
 
 public:
     static char wczytajZnak();

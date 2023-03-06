@@ -6,8 +6,7 @@
 
 using namespace std;
 
-class PlikTekstowy
-{
+class PlikTekstowy {
     const string NAZWA_PLIKU;
 
 public:

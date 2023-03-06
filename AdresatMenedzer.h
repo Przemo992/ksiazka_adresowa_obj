@@ -1,7 +1,6 @@
 #ifndef ADRESATMENEDZER_H
 #define ADRESATMENEDZER_H
 
-#include <iostream>
 #include <sstream>
 #include <vector>
 
@@ -13,8 +12,7 @@
 
 using namespace std;
 
-class AdresatMenedzer
-{
+class AdresatMenedzer {
 
     PlikZAdresatami plikZAdresatami;
 
@@ -26,23 +24,22 @@ class AdresatMenedzer
     void wyswietlDaneAdresata(Adresat adresat);
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     int podajIdWybranegoAdresata();
+    Adresat podajDaneNowegoAdresata();
 
 public:
 
     AdresatMenedzer(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika)
-        : plikZAdresatami(nazwaPlikuZAdresatami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika)
-    {
+        : plikZAdresatami(nazwaPlikuZAdresatami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika) {
         adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
     };
 
     void dodajAdresata();
-    Adresat podajDaneNowegoAdresata();
-    void wyswietlWszystkichAdresatow();
     void wylogowanie();
     void wyszukajAdresatowPoImieniu();
     void wyszukajAdresatowPoNazwisku();
     void edytujAdresata();
     void usunAdresata();
+    void wyswietlWszystkichAdresatow();
 };
 
 #endif // ADRESATMENEDZER_H
