@@ -61,7 +61,7 @@ Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika()
 
     string haslo;
     cout << "Podaj haslo: ";
-    cin >> haslo;
+    haslo = MetodyPomocnicze::zakrywanieHasla();
     uzytkownik.ustawHaslo(haslo);
 
     return uzytkownik;
@@ -81,8 +81,8 @@ void UzytkownikMenedzer::logowanieUzytkownika()
         {
             for (int iloscProb = 3; iloscProb > 0; iloscProb--)
             {
-                cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
-                cin >> haslo;
+                cout << endl << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
+                    haslo = MetodyPomocnicze::zakrywanieHasla();
 
                 if (uzytkownicy[i].pobierzHaslo() == haslo)
                 {

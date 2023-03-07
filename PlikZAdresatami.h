@@ -7,7 +7,6 @@
 #include "UzytkownikMenedzer.h"
 #include "MenuGlowne.h"
 
-using namespace std;
 
 class PlikZAdresatami :public PlikTekstowy {
     int idOstatniegoAdresata;
@@ -30,7 +29,7 @@ public:
     int pobierzIdOstatniegoAdresata();
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
     void zaktualizujDaneWybranegoAdresata(Adresat adresat);
-    void usunAdresataZPliku(vector <Adresat> &adresaci, int idUsuwanegoAdresata);
+    void usunAdresataZPliku(int idUsuwanegoAdresata);
 
 };
 

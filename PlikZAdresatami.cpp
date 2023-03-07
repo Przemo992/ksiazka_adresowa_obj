@@ -249,69 +249,36 @@ void PlikZAdresatami::zmienNazwePliku(string staraNazwa, string nowaNazwa)
 }
 
 
-void PlikZAdresatami::usunAdresataZPliku(vector <Adresat> &adresaci, int idUsuwanegoAdresata)
+void PlikZAdresatami::usunAdresataZPliku(int idUsuwanegoAdresata)
 {
+
     fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
 
-    char znak;
-    bool czyIstniejeAdresat = false;
-    for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++)
+    string linia = "";
+    int idAdresata;
+    int numerLini = 1;
+
+    odczytywanyPlikTekstowy.open(pobierzNazwePliku(), ios::in);
+    tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami, ios::out | ios::app);
+    while(getline(odczytywanyPlikTekstowy, linia))
     {
-        if (itr -> pobierzId() == idUsuwanegoAdresata)
+        idAdresata = atoi(linia.c_str());
+        if (idAdresata == idUsuwanegoAdresata) continue;
+        if (numerLini == 1)
         {
-            czyIstniejeAdresat = true;
-            cout << endl << "Potwierdz naciskajac klawisz 't': ";
-            znak = MenuGlowne::wczytajZnak();
-            if (znak == 't')
-            {
-                if (odczytywanyPlikTekstowy.good() == true && idUsuwanegoAdresata != 0)
-                {
-                    adresaci.erase(itr);
-
-                    string linia = "";
-                    int idAdresata;
-                    int numerLini = 1;
-
-                    odczytywanyPlikTekstowy.open(pobierzNazwePliku(), ios::in);
-                    tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami, ios::out | ios::app);
-                    while(getline(odczytywanyPlikTekstowy, linia))
-                    {
-                        idAdresata = atoi(linia.c_str());
-                        if (idAdresata == idUsuwanegoAdresata) continue;
-                        if (numerLini == 1)
-                        {
-                            tymczasowyPlikTekstowy << linia;
-                        }
-                        else
-                        {
-                            tymczasowyPlikTekstowy << endl << linia;
-                        }
-                        numerLini++;
-                    }
-
-                    odczytywanyPlikTekstowy.close();
-                    tymczasowyPlikTekstowy.close();
-
-                    usunPlik(pobierzNazwePliku());
-                    zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, pobierzNazwePliku());
-
-                    cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
-                    system("pause");
-                    return;
-                }
-            }
-            else
-            {
-                cout << endl << endl << "Wybrany adresat NIE zostal usuniety" << endl << endl;
-                system("pause");
-                return;
-            }
+            tymczasowyPlikTekstowy << linia;
         }
+        else
+        {
+            tymczasowyPlikTekstowy << endl << linia;
+        }
+        numerLini++;
     }
-    if (czyIstniejeAdresat == false)
-    {
-        cout << endl << "Nie ma takiego adresata w ksiazce adresowej" << endl << endl;
-        system("pause");
-    }
-    return;
+
+    odczytywanyPlikTekstowy.close();
+    tymczasowyPlikTekstowy.close();
+
+    usunPlik(pobierzNazwePliku());
+    zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, pobierzNazwePliku());
+
 }

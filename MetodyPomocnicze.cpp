@@ -60,3 +60,27 @@ int MetodyPomocnicze::wczytajLiczbeCalkowita()
     }
     return liczba;
 }
+string MetodyPomocnicze::zakrywanieHasla() {
+
+    constexpr char c_enter  = 13;
+    constexpr char c_backspace = 8;
+
+    string passwd;
+    char input_character;
+
+    input_character = getch();
+
+    while(input_character != c_enter) {
+
+        if(input_character == c_backspace && passwd.size()) {
+            cout << "\b \b";
+            passwd.pop_back();
+        } else if(input_character != c_backspace) {
+            cout.put('*');
+            passwd += input_character;
+        }
+
+        input_character = getch();
+    }
+    return passwd;
+}

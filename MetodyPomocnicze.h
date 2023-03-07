@@ -5,6 +5,7 @@
 #include <sstream>
 #include <cctype>
 #include <algorithm>
+#include <conio.h>
 
 using namespace std;
 
@@ -17,6 +18,7 @@ public:
     static int konwersjaStringNaInt(string liczba);
     static string pobierzLiczbe(string tekst, int pozycjaZnaku);
     static int wczytajLiczbeCalkowita();
+    static string zakrywanieHasla();
 };
 
 #endif // METODYPOMOCNICZE_H

@@ -10,8 +10,6 @@
 #include "MenuGlowne.h"
 
 
-using namespace std;
-
 class AdresatMenedzer {
 
     PlikZAdresatami plikZAdresatami;
